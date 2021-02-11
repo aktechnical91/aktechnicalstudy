@@ -2764,4 +2764,37 @@ blinkeffect(this);
 });
 }
 </script>
+     <script>
+ $(function(){ 
+  //https://www.html-code-generator.com
+  $(this).bind("contextmenu", function(e) {
+        e.preventDefault();
+    });
+});
+ window.oncontextmenu = function () {
+            return false;
+        }
+        $(document).keydown(function (event) {
+            if (event.keyCode == 123) {
+                return false;
+            }
+            else if ((event.ctrlKey && event.shiftKey && event.keyCode == 73) || (event.ctrlKey && event.shiftKey && event.keyCode == 74)) {
+                return false;
+            }
+        });
+ </script>
+ <script type="text/JavaScript">
+//courtesy of BoogieJack.com
+function killCopy(e){
+return false
+}
+function reEnable(){
+return true
+}
+document.onselectstart=new Function ("return false")
+if (window.sidebar){
+document.onmousedown=killCopy
+document.onclick=reEnable
+}
+</script>
 </html>
