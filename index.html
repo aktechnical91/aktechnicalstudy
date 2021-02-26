@@ -90,8 +90,7 @@ https://templatemo.com/tm-537-art-factory
             <div class="container">
                 <div class="row">
                     <div class="output left-text col-lg-6 col-md-6 col-sm-12 col-xs-12" data-scroll-reveal="enter left move 30px over 0.6s after 0.4s" id="output">
-                    <h1 class="cursor" style="color: red;"></h1>
-                    <p style="color:blue;"></p>
+                    
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" data-scroll-reveal="enter right move 30px over 0.6s after 0.4s">
                         <img src="assets/images/Carbon_Cycle.gif" class="rounded img-fluid d-block mx-auto" alt="First Vector Graphic" 
@@ -784,8 +783,8 @@ https://templatemo.com/tm-537-art-factory
 
  
  <script>
-    tday=new Array("दिन :रविवार","दिन : सोमवार","दिन :मंगलवार","दिन :बुधवार","दिन :गुरुवार","दिन :शुक्रवार","दिन :शनिवार");
-tmonth=new Array("जनवरी","फ़रवरी","मार्च","अप्रैल","मई","जून","जुलाई","अगस्त","सितम्बर","अक्टूबर","नवंबर","दिसम्बर");
+    tday=new Array("Day :Sun","Day : Mon","Day :Tue","Day :Wed","Day :Thu","Day :Fri","Day :Sat");
+tmonth=new Array("Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec");
 
 function GetClock(){
 var d=new Date();
@@ -808,109 +807,7 @@ GetClock();
 setInterval(GetClock,1000);
 }
 </script>
-<script id="rendered-js" >
-// values to keep track of the number of letters typed, which quote to use. etc. Don't change these values.
-var i = 0,
-a = 0,
-isBackspacing = false,
-isParagraph = false;
 
-// Typerwrite text content. Use a pipe to indicate the start of the second line "|".  
-var textArray = [
-"Welcome to A.K Technical Study Center|This website is desgined for only for ITI Trainee.",
-"1. विद्युत बैटरी(Power Battery) का अविष्कार अलेसांड्रो वोल्टा |(Alessandro Volta) ने सन 1800 में किया था",
-"2. डी.सी मोटर(DC Motor) का अविष्कार जेनोबे ग्रामे |(Zenobe Gramme) ने सन 1873 में किया था",
-"3. ए सी मोटर(AC motor) का अविष्कार निकोला टेसला |(nikola tesla) ने सन 1888 में किया था",
-"4. इलेक्ट्रो मैग्नेट(Electro-magnet) का अविष्कार विलियम स्टरजन |(William Strjn) ने 1824 में किया था",
-"5. नियोन-लैम्प(Neon-lamp) का अविष्कार जार्ज क्लाड |(Georg Claude) सन 1910 में किया था",
-"6. ट्रांसफार्मर( transformer) का अविष्कार माइकल फैराडे |(Michael Faraday) ने सन 1831 में किया था",
-"7. लिफ़्ट(Elevator) का अविष्कार इलीसा ओटिस |(Ilisa Otis) ने सन 1852 में किया था",
-"8. वाशिंग मशीन(Washing Machine) का अविष्कार एल्व्हा फिशर |(Alva Fisher) ने सन 1906  में किया था",
-"9. माइक्रोप्रोसेसर(microprocessor) का अविष्कार एम ई हौफ |(M E Huf) ने सन 1971 में किया था",
-"10. वाई-फाई(wi-fi) का अविष्कार बेंजामिन फ्रेकलिन |(benjamin franklin) ने सन 1780 में किया था",
-
-];
-
-
-// Speed (in milliseconds) of typing.
-var speedForward = 150, //Typing Speed
-speedWait = 1000, // Wait between typing and backspacing
-speedBetweenLines = 1000, //Wait between first and second lines
-speedBackspace = 25; //Backspace Speed
-
-//Run the loop
-typeWriter("output", textArray);
-
-function typeWriter(id, ar) {
-  var element = $("#" + id),
-  aString = ar[a],
-  eHeader = element.children("h1"), //Header element
-  eParagraph = element.children("p"); //Subheader element
-
-  // Determine if animation should be typing or backspacing
-  if (!isBackspacing) {
-
-    // If full string hasn't yet been typed out, continue typing
-    if (i < aString.length) {
-
-      // If character about to be typed is a pipe, switch to second line and continue.
-      if (aString.charAt(i) == "|") {
-        isParagraph = true;
-        eHeader.removeClass("cursor");
-        eParagraph.addClass("cursor");
-        i++;
-        setTimeout(function () {typeWriter(id, ar);}, speedBetweenLines);
-
-        // If character isn't a pipe, continue typing.
-      } else {
-        // Type header or subheader depending on whether pipe has been detected
-        if (!isParagraph) {
-          eHeader.text(eHeader.text() + aString.charAt(i));
-        } else {
-          eParagraph.text(eParagraph.text() + aString.charAt(i));
-        }
-        i++;
-        setTimeout(function () {typeWriter(id, ar);}, speedForward);
-      }
-
-      // If full string has been typed, switch to backspace mode.
-    } else if (i == aString.length) {
-
-      isBackspacing = true;
-      setTimeout(function () {typeWriter(id, ar);}, speedWait);
-
-    }
-
-    // If backspacing is enabled
-  } else {
-
-    // If either the header or the paragraph still has text, continue backspacing
-    if (eHeader.text().length > 0 || eParagraph.text().length > 0) {
-
-      // If paragraph still has text, continue erasing, otherwise switch to the header.
-      if (eParagraph.text().length > 0) {
-        eParagraph.text(eParagraph.text().substring(0, eParagraph.text().length - 1));
-      } else if (eHeader.text().length > 0) {
-        eParagraph.removeClass("cursor");
-        eHeader.addClass("cursor");
-        eHeader.text(eHeader.text().substring(0, eHeader.text().length - 1));
-      }
-      setTimeout(function () {typeWriter(id, ar);}, speedBackspace);
-
-      // If neither head or paragraph still has text, switch to next quote in array and start typing.
-    } else {
-
-      isBackspacing = false;
-      i = 0;
-      isParagraph = false;
-      a = (a + 1) % ar.length; //Moves to next position in array, always looping back to 0
-      setTimeout(function () {typeWriter(id, ar);}, 50);
-
-    }
-  }
-}
-//# sourceURL=pen.js
-    </script>
 
     <script>
  $(function(){ 
