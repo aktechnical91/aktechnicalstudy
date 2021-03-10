@@ -2,6 +2,10 @@
 $(function() {
 		var ticker = $("#ticker1");
 		var ticker2 = $("#ticker2");
+		var ticker4 = $("#ticker4");
+		var ticker5 = $("#ticker5");
+		var ticker6 = $("#ticker6");
+		var ticker7 = $("#ticker7");
 		var ticker3 = $(".entender");
 		ticker.children().filter("ul").each(function() {
 													 
@@ -17,7 +21,7 @@ $(function() {
 		function animator(currentItem) {
 		    
 		  var distance = currentItem.height();
-			duration = (distance + parseInt(currentItem.css("marginTop"))) / 0.025;
+			duration = (distance + parseInt(currentItem.css("marginTop"))) / 0.020;
 		  	currentItem.animate({ marginTop: -distance }, duration, "linear", function() {
 			currentItem.appendTo(currentItem.parent()).css("marginTop", 0);
 			animator(currentItem.parent().children(":first"));
@@ -151,6 +155,185 @@ $(function() {
 		ticker3.mouseleave(function() {
 		if(k == 0)
 		  animator(ticker3.children(":first"));
+		});
+
+
+		ticker4.children().filter("ul").each(function() {
+		  var dt = $(this),
+		    container = $("<div>");
+		  	dt.next().appendTo(container);
+		  	dt.prependTo(container);
+		 	container.appendTo(ticker4);
+		});
+		ticker4.css("overflow", "hidden");
+		
+		
+		
+		animator(ticker4.children(":first"));
+		var k=0	
+		$('#stop4').click(function() {
+		  ticker4.children().stop();
+		  k=1
+		  $('#stop4').hide();
+		  $('#play4').show();
+		  
+		  $("#ticker4").css("overflow", "scroll");
+		  $("#ticker4 li").addClass("stopped");
+		  
+		});
+
+		ticker4.mouseenter(function() {
+		  ticker4.children().stop();
+		});
+
+		$('#play4').click(function() {
+		  animator(ticker4.children(":first"));
+		  k=0
+		  $('#stop4').show();
+		  $('#play4').hide();
+		  
+		  $("#ticker4").css("overflow", "hidden");
+		  $("#ticker4 li").removeClass("stopped");
+		  
+		});
+		
+		ticker4.mouseleave(function() {
+		if(k == 0)
+		  animator(ticker4.children(":first"));
+		});
+
+		// triker5 start here
+		ticker5.children().filter("ul").each(function() {
+		  var dt = $(this),
+		    container = $("<div>");
+		  	dt.next().appendTo(container);
+		  	dt.prependTo(container);
+		 	container.appendTo(ticker5);
+		});
+		ticker5.css("overflow", "hidden");
+		
+		
+		
+		animator(ticker5.children(":first"));
+		var k=0	
+		$('#stop5').click(function() {
+		  ticker5.children().stop();
+		  k=1
+		  $('#stop5').hide();
+		  $('#play5').show();
+		  
+		  $("#ticker5").css("overflow", "scroll");
+		  $("#ticker5 li").addClass("stopped");
+		  
+		});
+
+		ticker5.mouseenter(function() {
+		  ticker5.children().stop();
+		});
+
+		$('#play5').click(function() {
+		  animator(ticker5.children(":first"));
+		  k=0
+		  $('#stop5').show();
+		  $('#play5').hide();
+		  
+		  $("#ticker5").css("overflow", "hidden");
+		  $("#ticker5 li").removeClass("stopped");
+		  
+		});
+		
+		ticker5.mouseleave(function() {
+		if(k == 0)
+		  animator(ticker5.children(":first"));
+		});
+
+		// triker6 start here
+		ticker6.children().filter("ul").each(function() {
+		  var dt = $(this),
+		    container = $("<div>");
+		  	dt.next().appendTo(container);
+		  	dt.prependTo(container);
+		 	container.appendTo(ticker6);
+		});
+		ticker6.css("overflow", "hidden");
+		
+		
+		
+		animator(ticker6.children(":first"));
+		var k=0	
+		$('#stop6').click(function() {
+		  ticker6.children().stop();
+		  k=1
+		  $('#stop6').hide();
+		  $('#play6').show();
+		  
+		  $("#ticker6").css("overflow", "scroll");
+		  $("#ticker6 li").addClass("stopped");
+		  
+		});
+
+		ticker6.mouseenter(function() {
+		  ticker6.children().stop();
+		});
+
+		$('#play6').click(function() {
+		  animator(ticker6.children(":first"));
+		  k=0
+		  $('#stop6').show();
+		  $('#play6').hide();
+		  
+		  $("#ticker6").css("overflow", "hidden");
+		  $("#ticker6 li").removeClass("stopped");
+		  
+		});
+		
+		ticker6.mouseleave(function() {
+		if(k == 0)
+		  animator(ticker6.children(":first"));
+		});
+		// triker7start here
+		ticker7.children().filter("ul").each(function() {
+		  var dt = $(this),
+		    container = $("<div>");
+		  	dt.next().appendTo(container);
+		  	dt.prependTo(container);
+		 	container.appendTo(ticker7);
+		});
+		ticker7.css("overflow", "hidden");
+		
+		
+		
+		animator(ticker7.children(":first"));
+		var k=0	
+		$('#stop7').click(function() {
+		  ticker7.children().stop();
+		  k=1
+		  $('#stop7').hide();
+		  $('#play7').show();
+		  
+		  $("#ticker7").css("overflow", "scroll");
+		  $("#ticker7 li").addClass("stopped");
+		  
+		});
+
+		ticker7.mouseenter(function() {
+		  ticker7.children().stop();
+		});
+
+		$('#play7').click(function() {
+		  animator(ticker7.children(":first"));
+		  k=0
+		  $('#stop7').show();
+		  $('#play7').hide();
+		  
+		  $("#ticker7").css("overflow", "hidden");
+		  $("#ticker7 li").removeClass("stopped");
+		  
+		});
+		
+		ticker7.mouseleave(function() {
+		if(k == 0)
+		  animator(ticker7.children(":first"));
 		});
 		
 		
